@@ -331,5 +331,95 @@ text-shadow: 0 0 4px #00000055;
 }
 
 
+@media (max-width: 480px) {
+  .main-title {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.4rem;
+  }
+
+  .contador {
+    flex-wrap: wrap;
+    padding: 2rem 1rem;
+    gap: 1rem;
+  }
+
+  .numero {
+    font-size: 3rem;
+  }
+
+  .rotulo {
+    font-size: 0.8rem;
+  }
+
+  .separador {
+    font-size: 2.5rem;
+  }
+
+  .frase-contagem {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+  }
+
+  .data-origem {
+    font-size: 0.9rem;
+  }
+
+  .moldura-coracao {
+    width: 100px;
+    height: 100px;
+  }
+
+  .continua-historia,
+  .momentos-magicos {
+    font-size: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .botao-musica {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+
+  .modal-conteudo {
+    width: 90vw;
+  }
+
+  .modal-fechar {
+    width: 28px;
+    height: 28px;
+    font-size: 1.3rem;
+    line-height: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 3rem;
+  }
+
+  .numero,
+  .separador {
+    font-size: 3.5rem;
+  }
+
+  .frase-contagem {
+    font-size: 1.4rem;
+  }
+
+  .moldura-coracao {
+    width: 120px;
+    height: 120px;
+  }
+
+  .botao-musica {
+    font-size: 1.1rem;
+    padding: 10px 22px;
+  }
+}
+
+
 
 
