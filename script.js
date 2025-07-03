@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const secondsElement = document.getElementById('seconds');
     const daysRemainingElement = document.getElementById('days-remaining');
 
-    // Defina a data do aniversário de 1 ano (31 de dezembro de 2025)
-    // Lembre-se que o JavaScript conta meses de 0 a 11, então dezembro é 11.
+    // Define a data do aniversário de 1 ano (31 de dezembro de 2025)
+    
     const oneYearAnniversary = new Date('December 31, 2025 00:00:00').getTime();
 
     function updateCountdown() {
