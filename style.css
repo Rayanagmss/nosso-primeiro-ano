@@ -237,6 +237,98 @@ text-shadow: 0 0 4px #00000055;
     .moldura-coracao { width: 120px; height: 120px; }
 }
 
+.musica-container {
+  text-align: center;
+  margin-top: 2rem;
+  z-index: 10;
+  position: relative;
+}
+
+.botao-musica {
+  background: linear-gradient(135deg, #f67280, #ffb6b9);
+  border: none;
+  padding: 12px 28px;
+  font-size: 1.2rem;
+  font-family: 'Parisienne', cursive;
+  color: white;
+  border-radius: 30px;
+  box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.botao-musica:hover {
+  background: linear-gradient(135deg, #ff6f91, #ffc0cb);
+  transform: scale(1.05);
+}
+
+
+
+
+
+/* Modal de fundo escuro */
+.modal-fundo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Mostrar modal */
+.modal-fundo.ativo {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Container da imagem modal */
+.modal-conteudo {
+  position: relative;
+  width: 80vw;
+  max-width: 600px;
+  aspect-ratio: 1 / 1; /* formato quadrado para máscara */
+  -webkit-mask-image: url('./assets/images/heart-mask.svg');
+  mask-image: url('./assets/images/heart-mask.svg');
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  box-shadow: 0 0 40px rgba(255, 105, 180, 0.8);
+  background-size: cover;
+  background-position: center;
+  cursor: default;
+}
+
+/* Botão fechar */
+.modal-fechar {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background: #ff4fcf;
+  color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  line-height: 30px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 0 10px #ff4fcf;
+  user-select: none;
+  z-index: 10;
+}
 
 
 
