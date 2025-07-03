@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Chama a função uma vez imediatamente para evitar delay inicial
     updateCountdown();
 
-    // --- Efeitos Mágicos (Adicionaremos aqui mais tarde) ---
+    // --- Efeitos Mágicos (Adicionarei aqui mais tarde) ---
     // Função para criar estrelas cintilantes no fundo
     function createStars() {
         const numStars = 50; // Quantidade de estrelas
