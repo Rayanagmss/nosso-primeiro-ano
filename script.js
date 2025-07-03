@@ -1,66 +1,55 @@
-// script.js
 document.addEventListener('DOMContentLoaded', () => {
-    const daysElement = document.getElementById('days');
-    const hoursElement = document.getElementById('hours');
-    const minutesElement = document.getElementById('minutes');
-    const secondsElement = document.getElementById('seconds');
-    const daysRemainingElement = document.getElementById('days-remaining');
+    const diasEl = document.getElementById('dias');
+    const horasEl = document.getElementById('horas');
+    const minutosEl = document.getElementById('minutos');
+    const segundosEl = document.getElementById('segundos');
+    const diasRestantesEl = document.getElementById('dias-restantes');
 
-    // Define a data do aniversário de 1 ano (31 de dezembro de 2025)
-    
-    const oneYearAnniversary = new Date('December 31, 2025 00:00:00').getTime();
+    const aniversarioUmAno = new Date('December 31, 2025 00:00:00').getTime();
 
-    function updateCountdown() {
-        const now = new Date().getTime();
-        const distance = oneYearAnniversary - now;
+    function atualizarContador() {
+        const agora = new Date().getTime();
+        const diferenca = aniversarioUmAno - agora;
 
-        // Cálculos para dias, horas, minutos e segundos
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+        const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
 
-        // Atualiza os elementos HTML
-        daysElement.innerHTML = String(days).padStart(2, '0');
-        hoursElement.innerHTML = String(hours).padStart(2, '0');
-        minutesElement.innerHTML = String(minutes).padStart(2, '0');
-        secondsElement.innerHTML = String(seconds).padStart(2, '0');
-        daysRemainingElement.innerHTML = days; // Para a frase "Faltam X dias"
+        diasEl.innerHTML = String(dias).padStart(2, '0');
+        horasEl.innerHTML = String(horas).padStart(2, '0');
+        minutosEl.innerHTML = String(minutos).padStart(2, '0');
+        segundosEl.innerHTML = String(segundos).padStart(2, '0');
+        diasRestantesEl.innerHTML = dias;
 
-        // Se a contagem regressiva terminou
-        if (distance < 0) {
-            clearInterval(countdownInterval);
-            // Exemplo de como mudar o texto quando termina
-            document.querySelector('.countdown-timer').innerHTML = '<span class="feliz-aniversario">Feliz 1 Ano de Amor!</span>';
-            document.querySelector('.countdown-phrase').style.display = 'none'; // Esconde a frase
-            daysRemainingElement.innerHTML = "0"; // Reinicia a contagem para 0 dias
+        if (diferenca < 0) {
+            clearInterval(intervaloContador);
+            document.querySelector('.contador').innerHTML = '<span class="feliz-aniversario">Feliz 1 Ano de Amor!</span>';
+            document.querySelector('.frase-contagem').style.display = 'none';
+            diasRestantesEl.innerHTML = "0";
         }
     }
 
-    // Atualiza a contagem regressiva a cada segundo
-    const countdownInterval = setInterval(updateCountdown, 1000);
+    const intervaloContador = setInterval(atualizarContador, 1000);
+    atualizarContador();
 
-    // Chama a função uma vez imediatamente para evitar delay inicial
-    updateCountdown();
-
-    // --- Efeitos Mágicos (Adicionarei aqui mais tarde) ---
-    // Função para criar estrelas cintilantes no fundo
-    function createStars() {
-        const numStars = 50; // Quantidade de estrelas
+    // Criar estrelas de fundo
+    function criarEstrelas() {
+        const totalEstrelas = 50;
         const body = document.body;
 
-        for (let i = 0; i < numStars; i++) {
-            const star = document.createElement('div');
-            star.classList.add('star');
-            star.style.width = `${Math.random() * 3 + 1}px`; // 1 a 4px
-            star.style.height = star.style.width;
-            star.style.top = `${Math.random() * 100}%`;
-            star.style.left = `${Math.random() * 100}%`;
-            star.style.animationDelay = `${Math.random() * 5}s`; // Atraso para cintilar em momentos diferentes
-            star.style.animationDuration = `${Math.random() * 3 + 3}s`; // Duração da animação
-            body.appendChild(star);
+        for (let i = 0; i < totalEstrelas; i++) {
+            const estrela = document.createElement('div');
+            estrela.classList.add('estrela');
+            estrela.style.width = `${Math.random() * 4 + 4}px`;
+            estrela.style.height = estrela.style.width;
+            estrela.style.top = `${Math.random() * 100}%`;
+            estrela.style.left = `${Math.random() * 100}%`;
+            estrela.style.animationDelay = `${Math.random() * 5}s`;
+            estrela.style.animationDuration = `${Math.random() * 3 + 3}s`;
+            body.appendChild(estrela);
         }
     }
 
-    createStars(); // Chama a função para criar as estrelas ao carregar
+    criarEstrelas();
 });
