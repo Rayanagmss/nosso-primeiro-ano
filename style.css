@@ -245,7 +245,7 @@ text-shadow: 0 0 4px #00000055;
 }
 
 .botao-musica {
-  background: linear-gradient(135deg, #f67280, #ffb6b9);
+  background: linear-gradient(135deg, #ff4fcf, #ffb6b9);
   border: none;
   padding: 12px 28px;
   font-size: 1.2rem;
@@ -259,7 +259,7 @@ text-shadow: 0 0 4px #00000055;
 }
 
 .botao-musica:hover {
-  background: linear-gradient(135deg, #ff6f91, #ffc0cb);
+  background: linear-gradient(135deg, #ff4fcf, #ffc0cb);
   transform: scale(1.05);
 }
 
