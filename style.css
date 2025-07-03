@@ -1,0 +1,284 @@
+/* style.css */
+
+/* Importação de fontes do Google Fonts (se não estiver no HTML) */
+/* @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap'); */
+
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif; /* Fonte principal padrão */
+    color: white; /* Cor do texto padrão */
+    background: linear-gradient(to bottom, #310033, #0a001a); /* Fundo estrelado gradual */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden; /* Evita barra de rolagem horizontal desnecessária */
+    position: relative; /* Para posicionamento de elementos absolutos como estrelas */
+}
+
+.container {
+    text-align: center;
+    padding: 2rem;
+    max-width: 90%;
+    width: 1000px; /* Largura máxima do conteúdo */
+    margin: 0 auto;
+    position: relative;
+    z-index: 10; /* Para o conteúdo ficar acima dos efeitos de fundo */
+}
+
+/* Títulos */
+.main-title {
+    font-family: 'Dancing Script', cursive; /* Fonte mais romântica para o título principal */
+    font-size: 4rem; /* Tamanho grande */
+    color: #FFD700; /* Dourado */
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.7); /* Efeito glow dourado */
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #C8A2C8; /* Lilás suave */
+    margin-bottom: 3rem;
+}
+
+/* Contador */
+.countdown-timer {
+    border: 0.3px solid rgb(231, 33, 182);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 2rem; /* Espaço entre as unidades de tempo e separadores */
+    margin-bottom: 3rem;
+    padding: 3rem;
+    background-color: rgba(0, 0, 0, 0.3);
+
+}
+
+.time-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.number {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 5rem; /* Números grandes */
+    font-weight: bold;
+    color: #FFFFFF; /* Branco puro */
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6); /* Super glow */
+    letter-spacing: -2px; /* Ajuste para não ficar muito espaçado */
+}
+
+.label {
+    font-size: 0.9rem;
+    color: #C8A2C8; /* Lilás suave */
+    margin-top: -0.5rem; /* Aproxima do número */
+}
+
+.separator {
+    font-size: 5rem;
+    color: #FFFFFF; /* Branco */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    align-self: flex-start; /* Alinha o separador com o topo dos números */
+}
+
+.countdown-phrase {
+    font-size: 1.5rem;
+    color: #FF69B4; /* Rosa romântico */
+    text-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
+    margin-bottom: 1rem;
+}
+
+.date-origin {
+    font-size: 1rem;
+    color: #C8A2C8; /* Lilás suave */
+    margin-bottom: 4rem;
+}
+
+/* Estilos para a película de filme */
+.film-strip-container {
+    position: relative;
+    padding: 20px 0; /* Espaço para os furinhos laterais */
+    background-color: rgba(0, 0, 0, 0.4); /* Fundo da "película" */
+    border-radius: 15px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.7);
+    margin-bottom: 4rem;
+    overflow: hidden; /* Para o overflow do filme-strip */
+}
+
+.film-strip {
+    display: flex;
+    overflow-x: auto; /* Permite a rolagem horizontal */
+    padding: 10px; /* Espaço interno para as fotos */
+    gap: 30px; /* Espaço entre os corações */
+    -webkit-overflow-scrolling: touch; /* Melhoria de scroll para mobile */
+    scroll-snap-type: x mandatory; /* Para "prender" os corações ao rolar */
+    scroll-padding: 20px; /* Para as bordas não cortarem o primeiro/último item */
+}
+
+/* Estilos da barra de rolagem (WebKit - Chrome, Safari) */
+.film-strip::-webkit-scrollbar {
+    height: 10px;
+}
+
+.film-strip::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+.film-strip::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+}
+
+/* Furos da película (linhas verticais) - CSS PURE MAGIC! */
+.film-strip-container::before,
+.film-strip-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 20px; /* Largura da área dos furos */
+    background: repeating-linear-gradient(to bottom,
+        rgba(255, 255, 255, 0) 0px, /* Transparente para o espaço entre os furos */
+        rgba(255, 255, 255, 0) 10px,
+        rgba(255, 255, 255, 0.1) 10px, /* A linha do furo */
+        rgba(255, 255, 255, 0.1) 12px,
+        rgba(255, 255, 255, 0) 12px,
+        rgba(255, 255, 255, 0) 30px /* Altura total do furo + espaço */
+    );
+    z-index: 1; /* Para aparecer acima do fundo da película */
+}
+
+.film-strip-container::before {
+    left: 0;
+}
+
+.film-strip-container::after {
+    right: 0;
+}
+
+.heart-frame {
+    flex-shrink: 0; /* Impede que os corações encolham */
+    width: 180px; /* Tamanho da moldura do coração */
+    height: 180px;
+    background-color: rgba(255, 255, 255, 0.05); /* Fundo sutil */
+    border-radius: 50%; /* Inicialmente um círculo */
+    position: relative;
+    overflow: hidden; /* Importante para cortar a imagem na forma do coração */
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.4); /* Sombra suave */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+    scroll-snap-align: center; /* Para o scroll-snap */
+}
+
+.heart-frame:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 105, 180, 0.7);
+}
+
+/* Formato de coração com CSS Mask (melhor abordagem) */
+.heart-frame {
+    -webkit-mask-image: url('./assets/images/heart-mask.svg'); /* Caminho para sua imagem SVG de máscara de coração */
+    mask-image: url('./assets/images/heart-mask.svg');
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+}
+
+/* Adicione as imagens de fundo para cada coração */
+.heart-1 { background-image: url('assets/images/foto1.jpg'); background-size: cover; background-position: center; }
+.heart-2 { background-image: url('./assets/images/foto2.jpg'); background-size: cover; background-position: center; }
+.heart-3 { background-image: url('./assets/images/foto3.jpg'); background-size: cover; background-position: center; }
+.heart-4 { background-image: url('./assets/images/foto4.jpg'); background-size: cover; background-position: center; }
+.heart-5 { background-image: url('./assets/images/foto5.jpg'); background-size: cover; background-position: center; }
+.heart-6 { background-image: url('./assets/images/foto6.jpg'); background-size: cover; background-position: center; }
+/* ... adicione mais conforme suas fotos ... */
+
+
+/* Textos finais */
+.story-continues {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: #FFD700; /* Dourado */
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    margin-top: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.magic-moments {
+    font-size: 1.1rem;
+    color: #C8A2C8; /* Lilás suave */
+}
+
+/* Efeitos de fundo: Estrelas e Brilhos */
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0;
+    animation: twinkle 5s infinite ease-in-out;
+    z-index: 1;
+}
+
+/* Exemplo de algumas estrelas fixas */
+.star:nth-child(1) { width: 2px; height: 2px; top: 10%; left: 20%; animation-delay: 0s; }
+.star:nth-child(2) { width: 3px; height: 3px; top: 5%; left: 50%; animation-delay: 1s; }
+.star:nth-child(3) { width: 2.5px; height: 2.5px; top: 15%; left: 80%; animation-delay: 2s; }
+.star:nth-child(4) { width: 1.5px; height: 1.5px; top: 30%; left: 10%; animation-delay: 3s; }
+.star:nth-child(5) { width: 4px; height: 4px; top: 40%; left: 70%; animation-delay: 0.5s; }
+.star:nth-child(6) { width: 2px; height: 2px; top: 60%; left: 30%; animation-delay: 2.5s; }
+/* ... Adicione mais estrelas com diferentes posições e delays ... */
+
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Nuvens (simplificadas com gradientes ou imagem) */
+/* Você pode adicionar um background-image no body para nuvens ou usar um div separada */
+/* Exemplo com CSS: */
+/* .cloud-effect {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: radial-gradient(ellipse at center, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+    animation: moveClouds 20s linear infinite alternate;
+    pointer-events: none;
+    z-index: 5;
+} */
+
+/* @keyframes moveClouds {
+    from { transform: translateX(-5%); }
+    to { transform: translateX(5%); }
+} */
+
+/* Responsividade básica */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 3rem;
+    }
+    .number {
+        font-size: 3.5rem;
+    }
+    .separator {
+        font-size: 3.5rem;
+    }
+    .countdown-phrase {
+        font-size: 1.2rem;
+    }
+    .heart-frame {
+        width: 120px;
+        height: 120px;
+    }
+}
