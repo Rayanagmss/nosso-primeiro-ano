@@ -73,9 +73,6 @@ botaoMusica.addEventListener('click', () => {
 });
 
 
-
-
-
 // Criar modal no body via JS
 const modalFundo = document.createElement('div');
 modalFundo.classList.add('modal-fundo');
